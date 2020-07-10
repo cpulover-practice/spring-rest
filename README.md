@@ -32,7 +32,7 @@
 2. Create Rest Controller with @RestController and @RequestMapping 
 [[StudentRestController]()]
 3. Add endpoints to the Controller 
-   - @PathVariable: bind url variable to method parameter
+   - @PathVariable: bind URL variable to method parameter
 
 ---
 
@@ -64,4 +64,13 @@
 - [!] Eclipse default browser does not display JSON -> Use external browsers or Postman
 - Append "?" to end of URL to get reload fresh data
 - Prefer Global Exception Handling for many controllers using @ControllerAdvice (real-time use of AOP)
+- Naming convention for API/endpoints: use only entity, not the action. For example: ```/api/customers/``` instead of ```/api/getCustomers/```
+- Path variable: {var} or :var
+- Secure Spring REST API 
+[[URL](https://developer.okta.com/blog/2018/12/18/secure-spring-rest-api)]
+
+
+
+
+
 
