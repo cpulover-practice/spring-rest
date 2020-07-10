@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +37,13 @@ public class StudentRestController {
 	// define endpoint for "/students/{index}" - return student at index
 	@GetMapping("/students/{index}")
 	public Student getStudent(@PathVariable int index) {
+
+		// check if studentIndex is illegal
+		if (index >= studentList.size() || index < 0) {
+			throw new StudentNotFoundException("Student not found - " + index);
+		}
+			
 		return studentList.get(index);
 	}
+
 }

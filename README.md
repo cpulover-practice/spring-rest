@@ -29,10 +29,23 @@
 ## Main Process
 1. Create POJO class 
 [[Student]()]
-2. Create Rest Controller 
+2. Create Rest Controller with @RestController and @RequestMapping 
+[[StudentRestController]()]
 3. Add endpoints to the Controller 
-   - @PathVariable
+   - @PathVariable: bind url variable to method parameter
 
+---
+
+## Global Exception Handling
+1. Create custom Error Response class (POJO) 
+[[StudentErrorResponse]()]
+2. Create custom Exception extends RuntimeException 
+[[StudentNotFoundException]()]
+3. Update REST service to throw exception 
+[[StudentRestController]()]	
+4. Create a Exception Handler class with @ControllerAdvice (for Global Handling) 
+[[StudentRestExceptionHandler]()]
+   - Add a custom exception handler and a generic exception handler with @ExceptionHandler (for Local Handling, put in the Controller)   
 
 ---
 
@@ -50,5 +63,5 @@
   - Clean the server
 - [!] Eclipse default browser does not display JSON -> Use external browsers or Postman
 - Append "?" to end of URL to get reload fresh data
-
+- Prefer Global Exception Handling for many controllers using @ControllerAdvice (real-time use of AOP)
 
